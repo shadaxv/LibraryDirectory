@@ -18,7 +18,7 @@ Project of the library directory, my first project using all the technologies wh
 
 ## Live version
 
-* [LibraryDirectory.AzureWebsites.net](http://librarydirectory.azurewebsites.net/){:target="_blank"}
+* <a href="http://librarydirectory.azurewebsites.net/" target="_blank"></a>
     
     
 ## Release History
