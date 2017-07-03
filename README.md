@@ -8,9 +8,9 @@ Project of the library directory, my first project using all the technologies wh
     * ASP.NET MVC
     * C#
     * HTML5
-    * CSS3 (SASS)
+    * CSS3 (Sass)
     * JS (ES5)
-    * AZURE
+    * Azure
 * Tools
     * Visual Studio
     * Git
