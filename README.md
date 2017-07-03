@@ -1,6 +1,7 @@
 # LibraryDirectory
 Project of the library directory, my first project using all the technologies which I know (Front- and Back-End)
 
+
 ## Used technologies and tools
 
 * Technologies
@@ -14,9 +15,11 @@ Project of the library directory, my first project using all the technologies wh
     * Visual Studio
     * Git
 
+
 ## Live version
 
  - <a href="http://librarydirectory.azurewebsites.net/" target="_blank">LibraryDirectory.AzureWebsites.net</a>
+    
     
 ## Release History
 
