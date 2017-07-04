@@ -10,7 +10,7 @@ Project of the library directory, my first project using all the technologies wh
     * HTML5
     * CSS3 (Sass)
     * JS (ES5)
-    * Azure
+    * Azure (SQL and web service)
 * Tools
     * Visual Studio
     * Git
