@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace LibraryDirectory.Controllers
 {
-    public class CustomersController : Controller
+    public class AdminController : Controller
     {
         private CustomerDbContext db = new CustomerDbContext();
 
-        // GET: Customers
+        // GET: Admin
         public ActionResult Index()
         {
             return View(db.Customers.ToList());

@@ -15,6 +15,10 @@ namespace LibraryDirectory.Models
         public string Mail { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
+        public int CurrentlyLentBooks { get; set; }
+        public int AllLentBooks { get; set; }
+        public int Privilege { get; set; }
+        public int AccountBalance { get; set; } //In future for financial penalties for delays in returning books, new features, buying books etc.
     }
 
     public class CustomerDbContext : DbContext

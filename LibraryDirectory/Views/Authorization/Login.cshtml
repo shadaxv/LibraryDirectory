@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -7,13 +12,10 @@
     <meta name="description" content="Library Directory - Project on the ASP.NET platform">
     <meta name="author" content="Aleksander Niedźwiedź">
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @RenderBody()
+    <div style="margin: 0 auto">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>
