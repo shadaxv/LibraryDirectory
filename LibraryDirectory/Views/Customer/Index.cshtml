@@ -18,11 +18,13 @@
     <div style="margin: 0 auto"> 
         <h1 style="margin: 0 auto; text-align: center;">Just SQL and Customer Model test</h1>
         <table style="margin: 0 auto;">
-            <tr><td>Id</td><td>Frist Name</td><td>Last Name</td><td>Phone</td><td>Mail</td><td>Password</td><td>Address</td></tr>
+            <tr><td>Id</td><td>Frist Name</td><td>Last Name</td><td>Phone</td><td>Mail</td><td>Password</td><td>Address</td><td>Number Of Currently Lent Books</td><td>Number Of All Lent Books</td><td>Privilege</td><td>Account Balance</td></tr>
+            
             @foreach (var row in Model)
             {
-                <tr><td>@row.Id</td><td>@row.FristName</td><td>@row.LastName</td><td>@row.Phone</td><td>@row.Mail</td><td>@row.Password</td><td>@row.Address</td></tr>
+                <tr><td>@row.Id</td><td>@row.FristName</td><td>@row.LastName</td><td>@row.Phone</td><td>@row.Mail</td><td>@row.Password</td><td>@row.Address</td><td>@row.CurrentlyLentBooks</td><td>@row.AllLentBooks</td><td>@row.Privilege</td><td>@row.AccountBalance</td></tr>
             }
+
         </table>
     </div>
 </body>
