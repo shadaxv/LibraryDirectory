@@ -10,7 +10,7 @@ Project of the library directory, my first project using all the technologies wh
     * HTML5
     * CSS3 (Sass)
     * JS (ES5)
-    * Azure
+    * Azure (SQL and web service)
 * Tools
     * Visual Studio
     * Git
@@ -23,6 +23,8 @@ Project of the library directory, my first project using all the technologies wh
     
 ## Release History
 
+* 1.0.2
+    * Added basic customer model
 * 1.0.1
     * Added README.md and LICENSE
 * 1.0.0
