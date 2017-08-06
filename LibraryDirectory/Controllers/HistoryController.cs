@@ -9,7 +9,7 @@ namespace LibraryDirectory.Controllers
 {
     public class HistoryController : Controller
     {
-        private HistoryOfLendingDbContext db = new HistoryOfLendingDbContext();
+        private LibraryDbContext db = new LibraryDbContext();
 
         // GET: History
         public ActionResult Index()

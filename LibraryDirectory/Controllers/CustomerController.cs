@@ -9,7 +9,7 @@ namespace LibraryDirectory.Controllers
 {
     public class CustomerController : Controller
     {
-        private CustomerDbContext db = new CustomerDbContext();
+        private LibraryDbContext db = new LibraryDbContext();
 
         // GET: Customers
         public ActionResult Index()

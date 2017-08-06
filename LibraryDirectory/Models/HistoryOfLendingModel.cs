@@ -15,9 +15,4 @@ namespace LibraryDirectory.Models
         public DateTime BookLentOn { get; set; }
         public DateTime BookReturnedOn { get; set; }
     }
-
-    public class HistoryOfLendingDbContext : DbContext
-    {
-        public DbSet<HistoryOfLendingModel> HistoryOfLending { get; set; }
-    }
 }

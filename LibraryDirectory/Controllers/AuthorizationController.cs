@@ -9,7 +9,7 @@ namespace LibraryDirectory.Controllers
 {
     public class AuthorizationController : Controller
     {
-        private CustomerDbContext db = new CustomerDbContext();
+        private LibraryDbContext db = new LibraryDbContext();
 
         // GET: Authorization
         public ActionResult Index()

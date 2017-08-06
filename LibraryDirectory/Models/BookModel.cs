@@ -18,9 +18,4 @@ namespace LibraryDirectory.Models
         public int AvailableBooks { get; set; }
         public int AllBooks { get; set; }
     }
-
-    public class BookDbContext : DbContext
-    {
-        public DbSet<BookModel> Books { get; set; }
-    }
 }

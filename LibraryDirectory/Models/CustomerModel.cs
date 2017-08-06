@@ -21,8 +21,11 @@ namespace LibraryDirectory.Models
         public int AccountBalance { get; set; } //In future for financial penalties for delays in returning books, new features, buying books etc.
     }
 
-    public class CustomerDbContext : DbContext
+    public class LibraryDbContext : DbContext
     {
+        public DbSet<BookModel> Books { get; set; }
         public DbSet<CustomerModel> Customers { get; set; }
+        public DbSet<HistoryOfLendingModel> HistoryOfLending { get; set; }
+        public DbSet<LentBooksModel> LentBooks { get; set; }
     }
 }

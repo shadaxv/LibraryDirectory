@@ -9,7 +9,7 @@ namespace LibraryDirectory.Controllers
 {
     public class LentBookController : Controller
     {
-        private LentBooksDbContext db = new LentBooksDbContext();
+        private LibraryDbContext db = new LibraryDbContext();
 
         // GET: LentBook
         public ActionResult Index()

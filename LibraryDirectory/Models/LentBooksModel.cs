@@ -16,9 +16,4 @@ namespace LibraryDirectory.Models
         public DateTime BookReturnedOn { get; set; }
         public bool IsBookBorrowed { get; set; }
     }
-
-    public class LentBooksDbContext : DbContext
-    {
-        public DbSet<LentBooksModel> LentBooks { get; set; }
-    }
 }
