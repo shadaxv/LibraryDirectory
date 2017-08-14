@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace LibraryDirectory.Models
 {
     public class HistoryOfLendingModel
     {
+        [Key]
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public int BookId { get; set; }
