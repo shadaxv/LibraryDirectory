@@ -1,50 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 namespace LibraryDirectory.Helpers
 {
     public class EncryptPasswordHelper
     {
-        public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
+        public static String sha256_hash(String value)
         {
-            HashAlgorithm algorithm = new SHA256Managed();
+            StringBuilder Sb = new StringBuilder();
 
-            byte[] plainTextWithSaltBytes =
-              new byte[plainText.Length + salt.Length];
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                Encoding enc = Encoding.UTF8;
+                Byte[] result = hash.ComputeHash(enc.GetBytes(value));
 
-            for (int i = 0; i < plainText.Length; i++)
-            {
-                plainTextWithSaltBytes[i] = plainText[i];
-            }
-            for (int i = 0; i < salt.Length; i++)
-            {
-                plainTextWithSaltBytes[plainText.Length + i] = salt[i];
+                foreach (Byte b in result)
+                    Sb.Append(b.ToString("x2"));
             }
 
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
+            return Sb.ToString();
         }
-
-        public static bool CompareByteArrays(byte[] array1, byte[] array2)
-        {
-            if (array1.Length != array2.Length)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < array1.Length; i++)
-            {
-                if (array1[i] != array2[i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
     }
 }

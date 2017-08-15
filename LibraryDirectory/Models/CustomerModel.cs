@@ -12,11 +12,9 @@ namespace LibraryDirectory.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [StringLength(50)]
         [Display(Name = "First Name: ")]
         public string FristName { get; set; }
         [Required]
-        [StringLength(50)]
         [Display(Name = "Last Name: ")]
         public string LastName { get; set; }
         [Required]
@@ -25,16 +23,13 @@ namespace LibraryDirectory.Models
         public int Phone { get; set; }
         [Required]
         [EmailAddress]
-        [StringLength(50)]
         [Display(Name = "Email Address: ")]
         public string Mail { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(50, MinimumLength = 6)]
         [Display(Name = "Password: ")]
-        public byte[] Password { get; set; }
+        public string Password { get; set; }
         [Required]
-        [StringLength(150)]
         [Display(Name = "Home address: ")]
         public string Address { get; set; }
         public int CurrentlyLentBooks { get; set; }

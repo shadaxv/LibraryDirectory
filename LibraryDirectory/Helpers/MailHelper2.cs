@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Web;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
@@ -20,7 +19,7 @@ namespace LibraryDirectory.Helpers
 
         static async Task Execute(string userMail, string title, string content, string userName)
         {
-            var apiKey = Environment.GetEnvironmentVariable("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");
+            var apiKey = Environment.GetEnvironmentVariable("apikey sendgrid");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("admin@librarydirectory.azurewebsites.net", title);
             var subject = title;
@@ -31,7 +30,7 @@ namespace LibraryDirectory.Helpers
             var response = await client.SendEmailAsync(msg);
         }
 
-        public static bool SendMail2(string userMail, string title, string content)
+        public static string SendMail2(string userMail, string title, string content)
         {
             //ConfigurationSettings.AppSettings["SendMailGmail"];
             MailMessage mail = new MailMessage();
@@ -44,19 +43,28 @@ namespace LibraryDirectory.Helpers
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential("lkjdsaflk", "sdafasdf");
+            client.Credentials = new NetworkCredential("log", "pass");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            ServicePointManager.ServerCertificateValidationCallback = delegate (object s,
+                        X509Certificate certificate,
+                        X509Chain chain,
+                        SslPolicyErrors sslPolicyErrors)
+            {
+                return true;
+            };
             try
             {
                 client.Send(mail);
-                return true;
+                return "true";
 
             }
             catch (Exception ex)
             {
-                return false;
+                return "Error: " + ex.ToString();
             }
 
         }

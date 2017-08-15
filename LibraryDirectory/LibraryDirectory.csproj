@@ -164,6 +164,18 @@
     </Compile>
     <Compile Include="Helpers\EncryptPasswordHelper.cs" />
     <Compile Include="Helpers\MailHelper2.cs" />
+    <Compile Include="Migrations\201708150122475_Initial.cs" />
+    <Compile Include="Migrations\201708150122475_Initial.Designer.cs">
+      <DependentUpon>201708150122475_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708151506521_Second.cs" />
+    <Compile Include="Migrations\201708151506521_Second.Designer.cs">
+      <DependentUpon>201708151506521_Second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708151518326_Third.cs" />
+    <Compile Include="Migrations\201708151518326_Third.Designer.cs">
+      <DependentUpon>201708151518326_Third.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookModel.cs" />
     <Compile Include="Models\LentBooksModel.cs" />
@@ -245,6 +257,17 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708150122475_Initial.resx">
+      <DependentUpon>201708150122475_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708151506521_Second.resx">
+      <DependentUpon>201708151506521_Second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708151518326_Third.resx">
+      <DependentUpon>201708151518326_Third.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
