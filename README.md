@@ -29,7 +29,6 @@ Project of the library directory, my first project using all the technologies wh
     * A user table has been moved from Customer to AdminPanel
 * 0.0.1_ALPHA
     * Changed version naming
-    
 * 1.0.2
     * Added basic customer model
 * 1.0.1
