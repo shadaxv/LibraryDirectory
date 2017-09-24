@@ -19,15 +19,15 @@ namespace LibraryDirectory.Helpers
 
         static async Task Execute(string userMail, string title, string content, string userName)
         {
-            var apiKey = Environment.GetEnvironmentVariable("apikey sendgrid");
+            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("admin@librarydirectory.azurewebsites.net", title);
             var subject = title;
             var to = new EmailAddress(userMail, userName);
             var plainTextContent = content;
-            var htmlContent = "<strong>librarydirectory.azurewebsites.net</strong>";
+            var htmlContent = "<strong>" + content + "</strong>";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
+            var response = await Task.Run(() => client.SendEmailAsync(msg)).ConfigureAwait(false);
         }
 
         public static string SendMail2(string userMail, string title, string content)

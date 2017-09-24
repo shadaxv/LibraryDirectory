@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
@@ -16,5 +17,12 @@ namespace LibraryDirectory.Models
         public int UniqueBookId { get; set; }
         public DateTime BookLentOn { get; set; }
         public DateTime BookReturnedOn { get; set; }
+
+        [ForeignKey("CustomerId")]
+        public virtual CustomerModel Customer { get; set; }
+        [ForeignKey("BookId")]
+        public virtual BookModel Book { get; set; }
+        [ForeignKey("UniqueBookId")]
+        public virtual LentBooksModel UniqueBook { get; set; }
     }
 }

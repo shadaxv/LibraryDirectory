@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -39,6 +40,10 @@ namespace LibraryDirectory.Models
         public bool IsActive { get; set; }
         public DateTime LastLogin { get; set; }
         public int AccountBalance { get; set; } //In future for financial penalties for delays in returning books, new features, buying books etc.
+
+        public ICollection<BookModel> Books { get; set; }
+        public ICollection<HistoryOfLendingModel> HistoryOfLending { get; set; }
+        public ICollection<LentBooksModel> LentBooks { get; set; }
     }
 
     public class LibraryDbContext : DbContext

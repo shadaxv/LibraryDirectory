@@ -19,5 +19,7 @@ namespace LibraryDirectory.Models
         public string Cover { get; set; }
         public int AvailableBooks { get; set; }
         public int AllBooks { get; set; }
+
+        public ICollection<LentBooksModel> LentBooks { get; set; }
     }
 }

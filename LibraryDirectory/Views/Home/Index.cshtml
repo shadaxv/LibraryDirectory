@@ -15,7 +15,23 @@
 
 <body>
     <div style="margin: 0 auto">
-
+        <div>
+            @if (Request.IsAuthenticated)
+            {
+                @User.Identity.Name
+            }
+        </div>
+        <div>
+            @if (Request.IsAuthenticated)
+            {
+                <span>No elo</span>
+            }
+            else
+            {
+                @Html.ActionLink("Sign In", "Login", "Authorization")
+                @Html.ActionLink("Sign Up", "Registration", "Authorization")
+            }
+        </div>
     </div>
 </body>
 </html>

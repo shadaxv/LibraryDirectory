@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
@@ -17,5 +18,10 @@ namespace LibraryDirectory.Models
         public DateTime BookMustBeReturnedTo { get; set; }
         public DateTime BookReturnedOn { get; set; }
         public bool IsBookBorrowed { get; set; }
+
+        [ForeignKey("CustomerId")]
+        public virtual CustomerModel Customer { get; set; }
+        [ForeignKey("BookId")]
+        public virtual BookModel Book { get; set; }
     }
 }

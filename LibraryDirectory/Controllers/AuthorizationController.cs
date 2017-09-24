@@ -38,9 +38,27 @@ namespace LibraryDirectory.Controllers
                     var hashedPassword = EncryptPasswordHelper.sha256_hash(passwordWithToken);
                     if (hashedPassword == checkMail.Password)
                     {
-                        FormsAuthentication.SetAuthCookie(user.Mail, false);
-                        return RedirectToAction("Index", "Home");
+                        if (checkMail.IsActive)
+                        {
+                            TempData["SuccessfulLogin"] = "Successfully logged in!";
+                            FormsAuthentication.SetAuthCookie(user.Mail, false);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            TempData["AccountInactive"] = "Resend activation link.";
+                            TempData["Url"] = String.Format("http://librarydirectory.azurewebsites.net/ActiveAccount/{0}", checkMail.Token);
+                            ModelState.AddModelError("", "Your account is inactive.");
+                        }
                     }
+                    else
+                    {
+                        ModelState.AddModelError("", "Wrong password. Try again.");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Couldn't find your Library account.");
                 }
             }
             else
@@ -61,7 +79,10 @@ namespace LibraryDirectory.Controllers
         {
             if (user.Mail != null)
             {
-                var token = Guid.NewGuid().ToString();
+                var checkMail = db.Customers.FirstOrDefault(x => x.Mail == user.Mail);
+                if (checkMail == null)
+                {
+                    var token = Guid.NewGuid().ToString();
                     var passwordWithToken = user.Password + token;
                     user.IsActive = false;
                     user.Token = token;
@@ -76,14 +97,17 @@ namespace LibraryDirectory.Controllers
                     string message = String.Format("Twój link aktywacyjny to: {2}{0}Twój token to: {1}", Environment.NewLine, token, url);
                     string userName = String.Format("{0} {1}", user.FristName, user.LastName);
                     //MailHelper2.SendMail2(user.Mail, "Library Directory - Account Activation", message); //GMAIL
-                    //MailHelper2.SendMail(user.Mail, "Library Directory - Account Activation", message, userName); //SENDGRID
+                    MailHelper2.SendMail(user.Mail, "Library Directory - Account Activation", message, userName); //SENDGRID
 
                     db.Customers.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Home");
                 }
-
-           
+                else
+                {
+                    ModelState.AddModelError("", "Are you trying to log on? That e-mail is already taken.");
+                }
+            }
             return View();
         }
 
