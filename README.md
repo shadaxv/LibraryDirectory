@@ -23,6 +23,13 @@ Project of the library directory, my first project using all the technologies wh
     
 ## Release History
 
+* 0.0.3_ALPHA
+    * Problem with user sessions
+* 0.0.2_ALPHA
+    * A user table has been moved from Customer to AdminPanel
+* 0.0.1_ALPHA
+    * Changed version naming
+    
 * 1.0.2
     * Added basic customer model
 * 1.0.1
